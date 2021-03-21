@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const foodRouter = require('./routes/FoodRoutes.js');
+const contactRouter = require('./routes/ContactRoutes.js');
 const cors = require('cors');
 const app = express();
 app.use(express.json());
@@ -12,6 +13,7 @@ mongoose.connect('mongodb+srv://vmorpheus:vaibhavahuja@cluster0-8yxfm.mongodb.ne
 mongoose.set('useFindAndModify', false);
 
 app.use(foodRouter);
+app.use(contactRouter);
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log("server is running")
